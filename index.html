@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Frontend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <img src="logocru.png" alt="CRUD System Logo" class="logo">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#entity1">Entidad 1</a></li>
+            <li><a href="#entity2">Entidad 2</a></li>
+            <li><a href="#entity3">Entidad 3</a></li>
+            <li><a href="#entity4">Entidad 4</a></li>
+            <li><a href="#entity5">Entidad 5</a></li>
+            <li><a href="#entity6">Entidad 6</a></li>
+            <li><a href="#entity7">Entidad 7</a></li>
+            <li><a href="#entity8">Entidad 8</a></li>
+            <li><a href="#entity9">Entidad 9</a></li>
+            <li><a href="#entity10">Entidad 10</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Bienvenido a la Landing Page</h1>
+    </header>
+    
+    <section id="register">
+        <h2>Registrar Usuario</h2>
+        <input type="text" id="name" placeholder="Nombre">
+        <input type="text" id="phone" placeholder="Teléfono">
+        <input type="text" id="address" placeholder="Dirección">
+        <button onclick="registerUser()">Registrar</button>
+    </section>
+    
+    <section id="list">
+        <h2>Lista de Usuarios</h2>
+        <input type="text" id="searchId" placeholder="Buscar por ID">
+        <button onclick="findById()">Buscar</button>
+        <input type="text" id="filter" placeholder="Filtrar por nombre, teléfono o dirección" oninput="filterList()">
+        <ul id="userList"></ul>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
