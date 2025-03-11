@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sena.crud_basic.DTO.userDTO;
-import com.sena.crud_basic.model.user;
+import com.sena.crud_basic.model.usuarios;
 import com.sena.crud_basic.repository.Iuser;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,11 +28,11 @@ public class userService {
 
     // register and update
     public void save(userDTO userDTO) {
-        user userRegister = converToModel(userDTO);
+        usuarios userRegister = converToModel(userDTO);
         data.save(userRegister);
     }
 
-    public userDTO convertToDTO(user user) {
+    public userDTO convertToDTO(usuarios user) {
         userDTO userdto = new userDTO(
             user.get_nombre(),
             user.getEmail(),
@@ -40,8 +40,8 @@ public class userService {
         return userdto;
     }
 
-    public user converToModel(userDTO userDTO) {
-        user user = new user(
+    public usuarios converToModel(userDTO userDTO) {
+        usuarios user = new usuarios(
                 0,
                 userDTO.getNombre(),
                 userDTO.getEmail(),
@@ -50,18 +50,18 @@ public class userService {
         return user;
     }
     public List<userDTO> findAll() {
-        List<user> users = data.findAll();
+        List<usuarios> users = data.findAll();
         return users.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
     
     public Optional<userDTO> findById(int id) {
-        Optional<user> userOptional = data.findById(id);
+        Optional<usuarios> userOptional = data.findById(id);
         return userOptional.map(this::convertToDTO);
     }
 
     // Método para eliminar un usuario por ID
     public boolean delete(int id) {
-        Optional<user> existingUser = data.findById(id);
+        Optional<usuarios> existingUser = data.findById(id);
         if (existingUser.isPresent()) {
             data.deleteById(id);
             return true;

@@ -9,9 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name = "user")
+@Entity(name = "usuarios")
 
-public class user {
+public class usuarios {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +31,11 @@ public class user {
    private LocalDateTime fecha_registro;
 
    // 🔹 Constructor vacío (Obligatorio para JPA)
-   public user() {
+   public usuarios() {
    }
 
    // 🔹 Constructor con parámetros
-   public user(int id, String nombre, String email, String contrasena, LocalDateTime fecha_registro) {
+   public usuarios(int id, String nombre, String email, String contrasena, LocalDateTime fecha_registro) {
       this.id = id;
       this.nombre = nombre;
       this.email = email;
