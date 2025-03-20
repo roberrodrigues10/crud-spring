@@ -17,7 +17,8 @@ public class series {
 
     public series() {}
 
-    public series(String titulo, int temporadas) {
+    public series(int id,String titulo, int temporadas) {
+        this.id = id;
         this.titulo = titulo;
         this.temporadas = temporadas;
     }

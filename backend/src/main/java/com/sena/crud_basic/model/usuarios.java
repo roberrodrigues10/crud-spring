@@ -52,7 +52,7 @@ public class usuarios {
       this.id = id;
    }
 
-   public String get_nombre() {
+   public String getNombre() {
       return nombre;
    }
 

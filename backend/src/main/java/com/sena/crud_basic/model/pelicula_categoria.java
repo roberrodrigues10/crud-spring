@@ -22,7 +22,8 @@ public class pelicula_categoria {
     // Constructores
     public pelicula_categoria() {}
 
-    public pelicula_categoria(peliculas pelicula, categorias categoria) {
+    public pelicula_categoria(int id, peliculas pelicula, categorias categoria) {
+        this.id = id;
         this.pelicula = pelicula;
         this.categoria = categoria;
     }

@@ -24,12 +24,23 @@ public class historial_visualizacion {
 
     @Column(name = "fecha", columnDefinition = "TIMESTAMP")
     private LocalDateTime fecha;
+    public historial_visualizacion (){
+    }
+    public historial_visualizacion(int id, usuarios usuario, int contenidoId,
+            com.sena.crud_basic.model.tipoContenido tipoContenido, LocalDateTime fecha) {
+        this.id = id;
+        this.usuario = usuario;
+        this.contenidoId = contenidoId;
+        this.tipoContenido = tipoContenido;
+        this.fecha = fecha;
+    }
 
     // Getters y Setters
 
     public int getId() {
         return id;
     }
+
 
     public void setId(int id) {
         this.id = id;

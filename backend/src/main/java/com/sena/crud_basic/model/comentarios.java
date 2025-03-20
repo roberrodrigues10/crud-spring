@@ -26,14 +26,14 @@ public class comentarios {
 
     @Column(name="fecha",length = 150,nullable = false)
     private LocalDateTime fecha;
-
+    public comentarios (){
+      }
     //constructor
     public comentarios (int usuario_id, String contenido, LocalDateTime fecha){
         this.usuario_id = usuario_id;
         this.contenido = contenido;
         this.fecha = fecha;
      }
-
      //get del ID  
      public int getUsuario_id() {
         return usuario_id;

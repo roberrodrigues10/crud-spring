@@ -21,7 +21,8 @@ public class serie_categoria {
     // Constructores
     public serie_categoria() {}
 
-    public serie_categoria(series series, categorias categoria) {
+    public serie_categoria(int id, series series, categorias categoria) {
+        this.id = id;
         this.series = series;
         this.categoria = categoria;
     }
@@ -36,7 +37,7 @@ public class serie_categoria {
     }
 
     public void setPelicula(series series) {
-        this.series = series;
+        this.series = series;   
     }
 
     public categorias getCategoria() {

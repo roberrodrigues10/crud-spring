@@ -34,7 +34,7 @@ public class userService {
 
     public userDTO convertToDTO(usuarios user) {
         userDTO userdto = new userDTO(
-            user.get_nombre(),
+            user.getNombre(),
             user.getEmail(),
             user.get_contrasena());
         return userdto;

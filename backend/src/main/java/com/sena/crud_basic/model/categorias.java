@@ -19,7 +19,8 @@ public class categorias {
 
     public categorias() {}
 
-    public categorias(String nombre) {
+    public categorias(int id,String nombre) {
+        this.id = id;
         this.nombre = nombre;
     }
 

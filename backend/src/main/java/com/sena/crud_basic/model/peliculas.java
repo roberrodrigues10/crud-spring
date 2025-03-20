@@ -21,7 +21,8 @@ public class peliculas {
 
     public peliculas() {}
 
-    public peliculas(String titulo, int duracion, Year año) {
+    public peliculas(int id,String titulo, int duracion, Year año) {
+        this.id = id;
         this.titulo = titulo;
         this.duracion = duracion;
         this.año = año;
