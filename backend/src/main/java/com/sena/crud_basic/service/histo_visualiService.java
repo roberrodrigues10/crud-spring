@@ -40,7 +40,7 @@ public class histo_visualiService {
         return histo_visualiDTO;
     }
 
-    public historial_visualizacion converToModel(histo_visualiDTO histo_visualiDTO) {
+    public historial_visualizacion converToModel(histo_visualiDTO   histo_visualiDTO) {
         historial_visualizacion historial_visualizacion = new historial_visualizacion(
                 0,
                 histo_visualiDTO.getUsuario(),

@@ -1,34 +1,33 @@
 package com.sena.crud_basic.DTO;
 
-import com.sena.crud_basic.model.categorias;
-import com.sena.crud_basic.model.series;
-
 public class series_categoriaDTO {
 
-    private series series;
+    private int serieId;
+    private int categoriaId;
 
-    private categorias categoria;
-
-    public series_categoriaDTO(com.sena.crud_basic.model.series series, categorias categoria) {
-        this.series = series;
-        this.categoria = categoria;
+    // Constructor vacío (requerido para deserialización JSON)
+    public series_categoriaDTO() {
     }
 
-    public series getSeries() {
-        return series;
+    // Constructor con ambos IDs
+    public series_categoriaDTO(int serieId, int categoriaId) {
+        this.serieId = serieId;
+        this.categoriaId = categoriaId;
     }
 
-    public void setSeries(series series) {
-        this.series = series;
+    public int getSerieId() {
+        return serieId;
     }
 
-    public categorias getCategoria() {
-        return categoria;
+    public void setSerieId(int serieId) {
+        this.serieId = serieId;
     }
 
-    public void setCategoria(categorias categoria) {
-        this.categoria = categoria;
+    public int getCategoriaId() {
+        return categoriaId;
     }
-    
-    
+
+    public void setCategoriaId(int categoriaId) {
+        this.categoriaId = categoriaId;
+    }
 }

@@ -5,15 +5,16 @@ import jakarta.persistence.*;
 @Entity(name = "serie_categoria")
 public class serie_categoria {
 
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    // Relación con la entidad pelicula
+
+    // Relación con la entidad series
     @ManyToOne
     @JoinColumn(name = "serie_id", nullable = false)
     private series series;
 
-    // Relación con la entidad categoria
+    // Relación con la entidad categorias
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private categorias categoria;
@@ -32,12 +33,12 @@ public class serie_categoria {
         return id;
     }
 
-    public series getPelicula() {
+    public series getSeries() {
         return series;
     }
 
-    public void setPelicula(series series) {
-        this.series = series;   
+    public void setSeries(series series) {
+        this.series = series;
     }
 
     public categorias getCategoria() {

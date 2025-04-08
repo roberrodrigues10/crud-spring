@@ -1,66 +1,74 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Frontend</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-         table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 20px;
-        }
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CRUD Frontend</title>
+        <link rel="stylesheet" href="../css/bootstrap-5.3.3-dist/css/bootstrap.css">   
+        <link rel="stylesheet" href="../css/styles.css">
+        <style>
+            table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            }
 
-        th, td {
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: left;
-        }
+            th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            }
 
-        td[contenteditable="true"] {
-        background-color: #f9f9f9;
-        cursor: text;
-        }
-    </style>
-</head>
-<body>
+            td[contenteditable="true"] {
+            background-color: #f9f9f9;
+            cursor: text;
+            }
+        </style>
+    </head>
+    <body>
 
-    <nav>
-        <img src="../img/logocru.png" alt="CRUD System Logo" class="logo">
-        <ul>
-            <li><a href="index.html">Usuarios</a></li>
-            <li><a href="serie_cat.html">Serie-Cat</a></li>
-            <li><a href="series.html">Series</a></li>
-            <li><a href="reseñas.html">Reseñas</a></li>
-            <li><a href="peliscat.html">Pelis-Cat</a></li>
-            <li><a href="pelis.html">Pelis</a></li>
-            <li><a href="histovi.html">Histo-visuali</a></li>
-            <li><a href="comentarios.html">Comentarios</a></li>
-            <li><a href="categorias.html">Categorias</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <img src="../img/logocru.png" alt="CRUD System Logo" class="logo">
+            <ul>
+                <li><a href="index.html">Usuarios</a></li>
+                <li><a href="serie_cat.html">Serie-Cat</a></li>
+                <li><a href="series.html">Series</a></li>
+                <li><a href="reseñas.html">Reseñas</a></li>
+                <li><a href="peliscat.html">Pelis-Cat</a></li>
+                <li><a href="pelis.html">Pelis</a></li>
+                <li><a href="histovi.html">Histo-visuali</a></li>
+                <li><a href="comentarios.html">Comentarios</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+            </ul>
+        </nav>
+        
+        <header>
+            <h1>Bienvenido a la Landing Page</h1>
+        </header>
+        
+        <section id="register">
+        <h2>Registrar Peliculas</h2>
+        <input type="text" id="titulo" placeholder="Titulo">
+        <input type="text" id="duracion" placeholder="Duracion">
+        <input type="text" id="año" placeholder="Año">
+        <button onclick="registerPelicula()">Registrar</button>
+    </section>
     
-    <header>
-        <h1>Bienvenido a la Landing Page</h1>
-    </header>
-    
-    <section id="register">
-      <h2>Registrar Peliculas</h2>
-      <input type="text" id="titulo" placeholder="Titulo">
-      <input type="text" id="duracion" placeholder="Duracion">
-      <input type="text" id="año" placeholder="Año">
-      <button onclick="registerUser()">Registrar</button>
-  </section>
-  
-  <section id="list">
-      <h2>Lista de peliculas</h2>
-      <input type="text" id="searchId" placeholder="Buscar por ID">
-      <button onclick="findById()">Buscar</button>
-      <input type="text" id="filter" placeholder="Filtrar por titulo" oninput="filterList()">
-      <ul id="userList"></ul>
-  </section>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+    <section id="list">
+        <h2>Lista de peliculas</h2>
+        <input type="text" id="searchId" placeholder="Buscar por ID">
+        <button onclick="findById()">Buscar</button>
+        <input type="text" id="filter" placeholder="Filtrar por titulo" oninput="filterList()">
+        <ul id="userList"></ul>
+    </section>
+    <section id="list">
+        <h2>Peliculas</h2>
+        <div class="peliculas" id="peliculas">
+            
+        </div>
+        
+        </section>
+        
+        <script src="js/pelis.js"></script>
+    </body>
+    </html>

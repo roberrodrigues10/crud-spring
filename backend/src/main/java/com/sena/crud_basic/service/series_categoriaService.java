@@ -5,61 +5,61 @@ import org.springframework.stereotype.Service;
 
 import com.sena.crud_basic.DTO.series_categoriaDTO;
 import com.sena.crud_basic.model.serie_categoria;
+import com.sena.crud_basic.model.series;
+import com.sena.crud_basic.model.categorias;
 import com.sena.crud_basic.repository.Iseries_categori;
+
 import java.util.List;
-import java.util.stream.Collectors;
-
-
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class series_categoriaService {
 
-    /*
-     * save
-     * findAll
-     * findById
-     * Delete
-     */
-    /* establish connection with the interface */
     @Autowired
     private Iseries_categori data;
 
-    // register and update
-    public void save(series_categoriaDTO series_categoriaDTO) {
-        serie_categoria seriesRegister = converToModel(series_categoriaDTO);
-        data.save(seriesRegister);
+    // Registrar la relación
+    public void save(series_categoriaDTO dto) {
+        serie_categoria relacion = converToModel(dto);
+        data.save(relacion);
     }
 
-    public series_categoriaDTO convertToDTO(serie_categoria serie_categoria) {
-        series_categoriaDTO series_categoriaDTO = new series_categoriaDTO(
-            serie_categoria.getPelicula(),
-            serie_categoria.getCategoria());
-        return series_categoriaDTO;
+    // Convertir de entidad a DTO
+    public series_categoriaDTO convertToDTO(serie_categoria entidad) {
+        return new series_categoriaDTO(
+                entidad.getSeries().getId(),
+                entidad.getCategoria().getId()
+        );
     }
 
-    public serie_categoria converToModel(series_categoriaDTO series_categoriaDTO) {
-        serie_categoria serial = new serie_categoria(
-                0,
-                series_categoriaDTO.getSeries(),
-                series_categoriaDTO.getCategoria());
-        return serial;
+    // Convertir de DTO a entidad
+    public serie_categoria converToModel(series_categoriaDTO dto) {
+        series serie = new series();
+        serie.setId(dto.getSerieId());
+
+        categorias categoria = new categorias();
+        categoria.setId(dto.getCategoriaId());
+
+        return new serie_categoria(0, serie, categoria);
     }
+
+    // Listar todas las relaciones
     public List<series_categoriaDTO> findAll() {
-        List<serie_categoria> serie = data.findAll();
-        return serie.stream().map(this::convertToDTO).collect(Collectors.toList());
-    }
-    
-    public Optional<series_categoriaDTO> findById(int id) {
-        Optional<serie_categoria> serieId = data.findById(id);
-        return serieId.map(this::convertToDTO);
+        List<serie_categoria> lista = data.findAll();
+        return lista.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 
-    // Método para eliminar un usuario por ID
-    
+    // Buscar una relación por ID
+    public Optional<series_categoriaDTO> findById(int id) {
+        Optional<serie_categoria> encontrada = data.findById(id);
+        return encontrada.map(this::convertToDTO);
+    }
+
+    // Eliminar una relación por ID
     public boolean delete(int id) {
-        Optional<serie_categoria> existeSerie = data.findById(id);
-        if (existeSerie.isPresent()) {
+        Optional<serie_categoria> existe = data.findById(id);
+        if (existe.isPresent()) {
             data.deleteById(id);
             return true;
         }
